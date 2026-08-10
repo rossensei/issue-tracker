@@ -1,4 +1,4 @@
-package io.github.rossensei.issue_tracker
+package io.github.rossensei.issuetracker
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

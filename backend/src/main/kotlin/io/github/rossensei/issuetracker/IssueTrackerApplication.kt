@@ -1,4 +1,4 @@
-package io.github.rossensei.issue_tracker
+package io.github.rossensei.issuetracker
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
