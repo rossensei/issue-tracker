@@ -21,18 +21,18 @@ class ProjectMemberController(
     private val projectMemberService: ProjectMemberService
 ) {
     @GetMapping
-    fun index(@PathVariable projectId: UUID): List<ProjectMemberResponse> =
+    fun getProjectMembers(@PathVariable projectId: UUID): List<ProjectMemberResponse> =
         projectMemberService.getProjectMembers(projectId)
 
     @PostMapping
-    fun store(
+    fun addProjectMember(
         @PathVariable projectId: UUID,
         @Valid @RequestBody request: StoreProjectMemberRequest
     ): ProjectMemberResponse =
         projectMemberService.addProjectMember(projectId, request)
 
     @PatchMapping("/{userId}")
-    fun update(
+    fun updateProjectMember(
         @PathVariable projectId: UUID,
         @PathVariable userId: UUID,
         @Valid @RequestBody request: UpdateProjectMemberRequest
@@ -40,6 +40,6 @@ class ProjectMemberController(
         projectMemberService.updateProjectMember(projectId, userId, request)
 
     @DeleteMapping("/{userId}")
-    fun delete(@PathVariable projectId: UUID, @PathVariable userId: UUID) =
+    fun removeProjectMember(@PathVariable projectId: UUID, @PathVariable userId: UUID) =
         projectMemberService.removeProjectMember(projectId, userId)
 }
