@@ -16,9 +16,9 @@ class UserController(
     private val userService: UserService,
 ) {
     @GetMapping("/users")
-    fun index(): List<UserResponse> = userService.getAllUsers()
+    fun getAllUsers(): List<UserResponse> = userService.getAllUsers()
 
     @PostMapping("/users")
-    fun store(@Valid @RequestBody request: StoreUserRequest): UserResponse =
+    fun storeUser(@Valid @RequestBody request: StoreUserRequest): UserResponse =
         userService.storeUser(request)
 }

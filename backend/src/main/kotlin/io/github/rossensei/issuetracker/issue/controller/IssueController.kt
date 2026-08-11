@@ -24,27 +24,27 @@ class IssueController(
     val CREATED_BY_ID = UUID.fromString("d08e567b-aeae-4a9d-b2f5-6c7edb4d2cae")
 
     @GetMapping("/projects/{projectId}/issues")
-    fun index(@PathVariable projectId: UUID): List<IssueResponse> =
+    fun getProjectIssues(@PathVariable projectId: UUID): List<IssueResponse> =
         issueService.getProjectIssues(projectId)
 
     @PostMapping("/projects/{projectId}/issues")
-    fun store(
+    fun storeProjectIssues(
         @PathVariable projectId: UUID,
         @Valid @RequestBody request: StoreIssueRequest,
     ) = issueService.storeProjectIssue(projectId, CREATED_BY_ID, request)
 
     @GetMapping("/issues/{issueId}")
-    fun show(@PathVariable issueId: UUID, ): IssueResponse =
+    fun getprojectIssue(@PathVariable issueId: UUID): IssueResponse =
         issueService.getIssue(issueId)
 
     @PatchMapping("/issues/{issueId}")
-    fun update(
+    fun updateProjectIssue(
         @PathVariable issueId: UUID,
         @Valid @RequestBody request: UpdateIssueRequest,
     ): IssueResponse =
         issueService.updateIssue(issueId, request)
 
     @DeleteMapping("/issues/{issueId}")
-    fun destroy(@PathVariable issueId: UUID) =
+    fun deleteProjectIssue(@PathVariable issueId: UUID) =
         issueService.deleteIssue(issueId)
 }
