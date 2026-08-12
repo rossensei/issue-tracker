@@ -24,12 +24,16 @@ class ProjectController(
     private val projectService: ProjectService,
 ) {
     @GetMapping
-    fun getAllProjects(@ParameterObject pageable: Pageable): PageResponse<ProjectResponse> =
-        projectService.getAllProjects(pageable)
+    fun getAllProjects(@ParameterObject pageable: Pageable): PageResponse<ProjectResponse> {
+        val userId = UUID.fromString("d08e567b-aeae-4a9d-b2f5-6c7edb4d2cae")
+        return projectService.getMyProjects(userId, pageable)
+    }
 
     @PostMapping
-    fun storeProject(@Valid @RequestBody request: StoreProjectRequest): ProjectResponse =
-        projectService.storeProject(request)
+    fun storeProject(@Valid @RequestBody request: StoreProjectRequest): ProjectResponse {
+        val userId = UUID.fromString("d08e567b-aeae-4a9d-b2f5-6c7edb4d2cae")
+        return projectService.storeProject(userId, request)
+    }
 
     @GetMapping("/{projectId}")
     fun getProject(@PathVariable projectId: UUID): ProjectResponse =

@@ -16,6 +16,8 @@ import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
 import jakarta.persistence.UniqueConstraint
+import org.hibernate.annotations.JdbcTypeCode
+import org.hibernate.type.SqlTypes
 import java.time.LocalDateTime
 import java.util.UUID
 
@@ -32,7 +34,7 @@ import java.util.UUID
 data class ProjectMember(
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    val id: UUID = UUID.randomUUID(),
+    val id: UUID? = null,
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", nullable = false)
     val project: Project,
@@ -40,6 +42,7 @@ data class ProjectMember(
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(
         name = "role",
         nullable = false,
@@ -50,7 +53,7 @@ data class ProjectMember(
 ) {
     fun toResponse(): ProjectMemberResponse =
         ProjectMemberResponse(
-            id = this.id,
+            id = this.id ?: UUID.randomUUID(),
             project = this.project,
             user = this.user,
             role = this.role,

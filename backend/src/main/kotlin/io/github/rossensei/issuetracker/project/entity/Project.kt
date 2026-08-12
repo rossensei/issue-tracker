@@ -22,6 +22,7 @@ class Project(
             id = this.id,
             name = this.name,
             description = this.description,
+            owner = null,
             createdAt = this.createdAt,
             updatedAt = this.updatedAt
         )
