@@ -1,6 +1,7 @@
 package io.github.rossensei.issuetracker.user.entity
 
 import io.github.rossensei.issuetracker.user.dto.response.UserResponse
+import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
@@ -12,9 +13,11 @@ import java.util.UUID
 class User (
     @Id
     val id: UUID = UUID.randomUUID(),
-    val username: String? = null,
-    val email: String? = null,
-    val password: String? = null,
+    @Column(unique = true, nullable = false)
+    val username: String,
+    @Column(unique = true, nullable = false)
+    val email: String,
+    val password: String,
     val createdAt: LocalDateTime = LocalDateTime.now(),
     var updatedAt: LocalDateTime = LocalDateTime.now()
 ) {
