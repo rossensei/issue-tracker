@@ -2,11 +2,11 @@ package io.github.rossensei.issuetracker.auth.controller
 
 import io.github.rossensei.issuetracker.auth.dto.LoginRequest
 import io.github.rossensei.issuetracker.auth.dto.RegisterRequest
-import io.github.rossensei.issuetracker.auth.security.AppUser
+import io.github.rossensei.issuetracker.auth.config.AppUser
+import io.github.rossensei.issuetracker.auth.config.AuthenticatedUser
+import io.github.rossensei.issuetracker.auth.config.JwtProperties
 import io.github.rossensei.issuetracker.auth.service.RegistrationService
 import io.github.rossensei.issuetracker.auth.service.TokenService
-import io.github.rossensei.issuetracker.config.AuthenticatedUser
-import io.github.rossensei.issuetracker.config.JwtProperties
 import io.github.rossensei.issuetracker.user.dto.response.UserResponse
 import io.github.rossensei.issuetracker.user.service.UserService
 import jakarta.validation.Valid

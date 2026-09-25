@@ -1,8 +1,8 @@
 package io.github.rossensei.issuetracker.auth.service
 
+import io.github.rossensei.issuetracker.auth.config.AuthenticatedUser
 import io.github.rossensei.issuetracker.auth.dto.RegisterRequest
 import io.github.rossensei.issuetracker.auth.exception.DuplicateUserException
-import io.github.rossensei.issuetracker.config.AuthenticatedUser
 import io.github.rossensei.issuetracker.user.entity.User
 import io.github.rossensei.issuetracker.user.repository.UserRepository
 import org.springframework.dao.DataIntegrityViolationException
