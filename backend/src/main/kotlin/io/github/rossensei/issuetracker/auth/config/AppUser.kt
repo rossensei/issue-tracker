@@ -1,4 +1,4 @@
-package io.github.rossensei.issuetracker.auth.security
+package io.github.rossensei.issuetracker.auth.config
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority

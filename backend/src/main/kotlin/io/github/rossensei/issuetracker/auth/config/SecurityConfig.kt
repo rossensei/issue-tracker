@@ -1,7 +1,7 @@
-package io.github.rossensei.issuetracker.config
+package io.github.rossensei.issuetracker.auth.config
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret
-import io.github.rossensei.issuetracker.auth.security.UsernameUserDetailsService
+import io.github.rossensei.issuetracker.config.FrontendProperties
 import org.springframework.core.convert.converter.Converter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

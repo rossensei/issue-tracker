@@ -1,4 +1,4 @@
-package io.github.rossensei.issuetracker.config
+package io.github.rossensei.issuetracker.auth.config
 
 import java.util.UUID
 

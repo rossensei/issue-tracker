@@ -1,7 +1,7 @@
 package io.github.rossensei.issuetracker.auth.service
 
-import io.github.rossensei.issuetracker.config.AuthenticatedUser
-import io.github.rossensei.issuetracker.config.JwtProperties
+import io.github.rossensei.issuetracker.auth.config.AuthenticatedUser
+import io.github.rossensei.issuetracker.auth.config.JwtProperties
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm
 import org.springframework.security.oauth2.jwt.JwsHeader
 import org.springframework.security.oauth2.jwt.JwtClaimsSet

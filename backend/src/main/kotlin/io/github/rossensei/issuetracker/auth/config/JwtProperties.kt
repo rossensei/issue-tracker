@@ -1,4 +1,4 @@
-package io.github.rossensei.issuetracker.config
+package io.github.rossensei.issuetracker.auth.config
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import java.time.Duration

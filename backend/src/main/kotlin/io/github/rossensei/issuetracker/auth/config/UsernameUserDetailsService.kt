@@ -1,4 +1,4 @@
-package io.github.rossensei.issuetracker.auth.security
+package io.github.rossensei.issuetracker.auth.config
 
 import io.github.rossensei.issuetracker.user.repository.UserRepository
 import org.springframework.security.core.userdetails.UserDetails
@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
 
 @Service
- class UsernameUserDetailsService(
+class UsernameUserDetailsService(
     private val userRepository: UserRepository,
 ): UserDetailsService {
     override fun loadUserByUsername(username: String): UserDetails {
