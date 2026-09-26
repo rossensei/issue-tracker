@@ -1,22 +1,15 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/vue-query"
 
-import { getAllProjects } from "~/generated/clients/getAllProjects"
-import { storeProject } from "~/generated/clients/storeProject"
-import type { StoreProjectRequest } from "~/generated/types/StoreProjectRequest"
+import { getAllProjects, storeProject } from "~/generated/clients/index"
+import type { StoreProjectRequest } from "~/generated/models/StoreProjectRequest"
 
-export const useProjects = (page: Ref<number>, size: Ref<number>) => {
+export const useProjects = () => {
   const queryClient = useQueryClient()
 
   const projectsQuery = useQuery({
-    queryKey: computed(() => ["projects", page.value, size.value]),
-    queryFn: () =>
-      getAllProjects({
-        query: {
-          page: page.value - 1,
-          size: size.value,
-        },
-      }),
-  })
+    queryKey: computed(() => ["projects"]),
+    queryFn: () => getAllProjects(),
+  });
 
   
   const createMutation = useMutation({
@@ -33,9 +26,7 @@ export const useProjects = (page: Ref<number>, size: Ref<number>) => {
   })
 
   return {
-    data: computed(() => projectsQuery.data.value?.data.content ?? []),
-    totalElements: computed(() => Number(projectsQuery.data.value?.data.totalElements) ?? 0),
-    totalPages: computed(() => projectsQuery.data.value?.data.totalPages ?? 0),
+    data: computed(() => projectsQuery.data.value ?? []),
 
     isLoading: projectsQuery.isLoading,
     isFetching: projectsQuery.isFetching,

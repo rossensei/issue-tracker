@@ -1,18 +1,25 @@
-// app/plugins/api.ts
-
-import createClient from 'openapi-fetch'
-import type { paths } from '~~/types/api'
+import { client } from "~/generated/.kubb/client"
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
 
-  const api = createClient<paths>({
-    baseUrl: config.public.apiBaseUrl,
+  client.setConfig({
+    credentials: "include",
+    baseURL: config.public.apiBaseUrl,
   })
 
-  return {
-    provide: {
-      api,
-    },
+  client.interceptors.request.use((request) => {
+    request.credentials = 'include'
+    return request
+  })
+
+  if (import.meta.server) {
+    client.interceptors.request.use((request) => {
+      const headers = useRequestHeaders(['cookie'])
+      if (headers.cookie) {
+        request.headers['Cookie'] = headers.cookie
+      }
+      return request
+    })
   }
 })

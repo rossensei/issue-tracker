@@ -6,6 +6,9 @@
 .cache
 dist
 
+# Kubb generated files
+/app/generated/
+
 # Node dependencies
 node_modules
 
