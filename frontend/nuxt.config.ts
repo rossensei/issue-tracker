@@ -18,11 +18,15 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
+  routeRules: {
+    '/api/**': { proxy: 'http://localhost:8080' }
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
     'shadcn-nuxt',
-    '@nuxt/fonts'
+    '@nuxt/fonts',
   ],
 
   eslint: {

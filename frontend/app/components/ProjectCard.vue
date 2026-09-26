@@ -23,7 +23,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { IconLink } from "@tabler/icons-vue"
-import type { ProjectResponse } from '~/generated/types/ProjectResponse'
+import type { ProjectResponse } from '~/generated/models/ProjectResponse'
 
 const props = defineProps<{
   project: ProjectResponse
