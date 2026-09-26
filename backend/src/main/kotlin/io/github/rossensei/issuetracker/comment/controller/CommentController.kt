@@ -4,6 +4,7 @@ import io.github.rossensei.issuetracker.comment.dto.request.StoreCommentRequest
 import io.github.rossensei.issuetracker.comment.dto.request.UpdateCommentRequest
 import io.github.rossensei.issuetracker.comment.dto.response.CommentResponse
 import io.github.rossensei.issuetracker.comment.service.CommentService
+import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -17,6 +18,7 @@ import java.util.UUID
 
 @RestController
 @RequestMapping("/api/issues/{issueId}")
+@Tag(name = "comment", description = "Comments API")
 class CommentController(
     private val commentService: CommentService
 ) {

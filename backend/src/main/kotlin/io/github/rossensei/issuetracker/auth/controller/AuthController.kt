@@ -9,6 +9,7 @@ import io.github.rossensei.issuetracker.auth.service.RegistrationService
 import io.github.rossensei.issuetracker.auth.service.TokenService
 import io.github.rossensei.issuetracker.user.dto.response.UserResponse
 import io.github.rossensei.issuetracker.user.service.UserService
+import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.apache.coyote.Response
 import org.springframework.http.HttpHeaders
@@ -29,6 +30,7 @@ import java.time.Duration
 
 @RestController
 @RequestMapping("/api/auth")
+@Tag(name = "auth", description = "Auth API")
 class AuthController(
     private val authManager: AuthenticationManager,
     private val token: TokenService,

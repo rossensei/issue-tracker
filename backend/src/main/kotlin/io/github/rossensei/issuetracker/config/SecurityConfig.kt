@@ -1,10 +1,13 @@
-package io.github.rossensei.issuetracker.auth.config
+package io.github.rossensei.issuetracker.config
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret
-import io.github.rossensei.issuetracker.config.FrontendProperties
-import org.springframework.core.convert.converter.Converter
+import io.github.rossensei.issuetracker.auth.config.AuthenticatedUser
+import io.github.rossensei.issuetracker.auth.config.JwtProperties
+import io.github.rossensei.issuetracker.auth.config.UserAuthenticationToken
+import io.github.rossensei.issuetracker.auth.config.UsernameUserDetailsService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.core.convert.converter.Converter
 import org.springframework.security.authentication.AbstractAuthenticationToken
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.ProviderManager
@@ -79,6 +82,7 @@ class SecurityConfig(
                 csrf.ignoringRequestMatchers("/api/auth/login", "/api/auth/register")
             }
             .authorizeHttpRequests {
+                it.requestMatchers("/v3/api-docs/**", "/swagger-ui/**").permitAll()
                 it.requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
                     .anyRequest().authenticated()
             }

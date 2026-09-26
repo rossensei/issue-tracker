@@ -4,6 +4,7 @@ import io.github.rossensei.issuetracker.projectmember.dto.request.StoreProjectMe
 import io.github.rossensei.issuetracker.projectmember.dto.request.UpdateProjectMemberRequest
 import io.github.rossensei.issuetracker.projectmember.dto.response.ProjectMemberResponse
 import io.github.rossensei.issuetracker.projectmember.service.ProjectMemberService
+import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -17,6 +18,7 @@ import java.util.UUID
 
 @RestController
 @RequestMapping("/api/projects/{projectId}/members")
+@Tag(name = "projectMember", description = "Project Members API")
 class ProjectMemberController(
     private val projectMemberService: ProjectMemberService
 ) {

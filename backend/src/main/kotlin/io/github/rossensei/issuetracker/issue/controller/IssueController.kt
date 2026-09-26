@@ -4,6 +4,7 @@ import io.github.rossensei.issuetracker.issue.dto.request.StoreIssueRequest
 import io.github.rossensei.issuetracker.issue.dto.request.UpdateIssueRequest
 import io.github.rossensei.issuetracker.issue.dto.response.IssueResponse
 import io.github.rossensei.issuetracker.issue.service.IssueService
+import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -17,6 +18,7 @@ import java.util.UUID
 
 @RestController
 @RequestMapping("/api")
+@Tag(name = "issue", description = "Issues API")
 class IssueController(
     private val issueService: IssueService,
 ) {

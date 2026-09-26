@@ -5,6 +5,7 @@ import io.github.rossensei.issuetracker.project.dto.request.UpdateProjectRequest
 import io.github.rossensei.issuetracker.project.dto.response.PageResponse
 import io.github.rossensei.issuetracker.project.dto.response.ProjectResponse
 import io.github.rossensei.issuetracker.project.service.ProjectService
+import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.springdoc.core.annotations.ParameterObject
 import org.springframework.data.domain.Pageable
@@ -20,6 +21,7 @@ import java.util.UUID
 
 @RestController
 @RequestMapping("/api/projects")
+@Tag(name = "project", description = "Projects API")
 class ProjectController(
     private val projectService: ProjectService,
 ) {
